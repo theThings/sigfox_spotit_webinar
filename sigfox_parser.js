@@ -20,7 +20,7 @@ function stringToMac(string) {
   return rev(string).match(/.{1,2}/g).reverse().join(':');
 }
 
-let GOOGLE_API_KEY = 'your google api key';
+let GOOGLE_API_KEY = 'AIzaSyAlBBOmgBEiWdIry_zOfwm6Zyx7zSjRr-k';
 
 function main(params, callback) {
   let result;
@@ -47,15 +47,15 @@ function main(params, callback) {
 
       result = [
         {
-          'key': 'geolocation',
-          'value': 'google-wifi',
+          'key': 'googleGeolocation',
+          'value': '1',
           'geo': {
             'lat': JSON.parse(res.result).location.lat,
-            'long': JSON.parse(res.result).location.long
+            'long': JSON.parse(res.result).location.lng
           }
         },
         {
-          'key': 'google_accuracy',
+          'key': 'googleRadius',
           'value': JSON.parse(res.result).accuracy
         }];
       return callback(null, result);
